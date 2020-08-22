@@ -46,3 +46,15 @@ app.get("/api/posts", (req, res) => {
     }
   );
 });
+
+app.post("/api/posts", bodyParser.json(), (req, res) => {
+  posts.add(req.token, req.body).then(
+    (data) => res.send(data),
+    (error) => {
+      console.error(error);
+      res.status(500).send({
+        error: "There was an error.",
+      });
+    }
+  );
+});
