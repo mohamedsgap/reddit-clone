@@ -58,3 +58,15 @@ app.post("/api/posts", bodyParser.json(), (req, res) => {
     }
   );
 });
+
+app.get("/api/posts/:id", (req, res) => {
+  posts.get(req.token, req.params.id).then(
+    (data) => res.send(data),
+    (error) => {
+      console.error(error);
+      res.status(500).send({
+        error: "There was an error.",
+      });
+    }
+  );
+});
