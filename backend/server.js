@@ -172,3 +172,15 @@ app.post("/api/comments/:id", bodyParser.json(), (req, res) => {
     }
   );
 });
+
+app.delete("/api/comments/:id", (req, res) => {
+  comments.disable(req.token, req.params.id).then(
+    (data) => res.send(data),
+    (error) => {
+      console.error(error);
+      res.status(500).send({
+        error: "There was an error.",
+      });
+    }
+  );
+});
