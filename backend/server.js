@@ -34,3 +34,15 @@ app.get("/api/:category/posts", (req, res) => {
     }
   );
 });
+
+app.get("/api/posts", (req, res) => {
+  posts.getAll(req.token).then(
+    (data) => res.send(data),
+    (error) => {
+      console.error(error);
+      res.status(500).send({
+        error: "There was an error.",
+      });
+    }
+  );
+});
