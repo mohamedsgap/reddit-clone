@@ -123,3 +123,15 @@ app.get("/api/posts/:id/comments", (req, res) => {
     }
   );
 });
+
+app.get("/api/comments/:id", (req, res) => {
+  comments.get(req.token, req.params.id).then(
+    (data) => res.send(data),
+    (error) => {
+      console.error(error);
+      res.status(500).send({
+        error: "There was an error.",
+      });
+    }
+  );
+});
