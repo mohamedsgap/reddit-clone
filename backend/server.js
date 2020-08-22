@@ -147,3 +147,15 @@ app.put("/api/comments/:id", bodyParser.json(), (req, res) => {
     }
   );
 });
+
+app.post("/api/comments", bodyParser.json(), (req, res) => {
+  comments.add(req.token, req.body).then(
+    (data) => res.send(data),
+    (error) => {
+      console.error(error);
+      res.status(500).send({
+        error: "There was an error.",
+      });
+    }
+  );
+});
