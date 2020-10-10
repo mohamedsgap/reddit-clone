@@ -5,7 +5,7 @@ import commentsReducer from "./comments";
 import sortByReducer from "./sort";
 import postReducer from "./post";
 
-export default commentsReducer({
+export default combineReducers({
   categories: categoryReducer,
   posts: postsReducer,
   comments: commentsReducer,

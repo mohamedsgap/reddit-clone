@@ -22,6 +22,14 @@ import {
 } from "../actions/comments";
 import { GET_POST_BY_POST_ID } from "../actions/post";
 
+function* getAllCommentsByPostIdSaga({ id }) {
+  const comments = yield call(getAllCommentsByPostId, id);
+  yield put({
+    type: GET_ALL_COMMENTS_BY_POST_ID_SUCCESS,
+    comments,
+  });
+}
+
 function* addCommentSaga(action) {
   const comment = yield call(addComment, action.comment);
   const comments = yield call(getAllCommentsByPostId, comment.parentId);
