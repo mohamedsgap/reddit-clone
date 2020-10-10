@@ -1,5 +1,5 @@
 import axios from "axios";
-import uuidV1 from "uuid/v1";
+import { v1 as uuidv1 } from "uuid";
 
 const headers = {
   Accept: "application/json",
@@ -57,7 +57,7 @@ export async function downVoteToComment(id) {
 }
 
 export async function addPost({ category, title, body, auther }) {
-  const id = uuidV1();
+  const id = uuidv1();
   const timestamp = Date.now();
   const res = await axios.post(
     `/api/posts`,
@@ -79,7 +79,13 @@ export async function deletePost(id) {
   return res.data;
 }
 
-export async function editPostsByPostId({ id, title, body }) {
+export async function getPostByPostId(id) {
+  const res = await axios.get(`/api/posts/${id}`, { headers });
+
+  return res.data;
+}
+
+export async function editPostByPostId({ id, title, body }) {
   const res = await axios.put(`/api/posts/${id}`, { title, body }, { headers });
   return res.data;
 }
@@ -95,7 +101,7 @@ export async function deleteComment(id) {
 }
 
 export async function addComment({ body, auther, parentId }) {
-  const id = uuidV1();
+  const id = uuidv1();
   const timestamp = Date.now();
   const res = await axios.post(
     `/api/comments`,
