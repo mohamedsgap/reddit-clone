@@ -33,7 +33,7 @@ function* getAllCommentsByPostIdSaga({ id }) {
 function* addCommentSaga(action) {
   const comment = yield call(addComment, action.comment);
   const comments = yield call(getAllCommentsByPostId, comment.parentId);
-  if (comment.length > 0) {
+  if (comments.length > 0) {
     yield put({
       type: GET_POST_BY_POST_ID,
       id: comment.parentId,
