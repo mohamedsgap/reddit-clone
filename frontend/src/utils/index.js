@@ -9,7 +9,7 @@ export const getSortedPosts = (posts, order) => {
   return posts;
 };
 
-export function dateFormatonEgypt(timestamp) {
+export function dateFormatEgypt(timestamp) {
   return new Date(timestamp).toLocaleString("en-EG", {
     timeZone: "Egypt/Cairo",
   });
