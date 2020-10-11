@@ -16,5 +16,5 @@ export function dateFormatEgypt(timestamp) {
 }
 
 export function dateFormat(timestamp) {
-  return new Date.toString(timestamp);
+  return new Date(timestamp).toString();
 }

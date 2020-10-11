@@ -3,7 +3,7 @@ import { v1 as uuidv1 } from "uuid";
 
 const headers = {
   Accept: "application/json",
-  Authorization: "RedditMo",
+  Authorization: "ReadableJay",
 };
 
 export async function getAllCategories() {
@@ -126,3 +126,5 @@ export async function editComment({ id, body }) {
   );
   return res.data;
 }
+
+console.log("id on api file", uuidv1());
