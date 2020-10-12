@@ -6,10 +6,11 @@ import { setSortBy } from "../store/actions";
 
 export default function AllPosts(props) {
   const dispatch = useDispatch();
-  const changeSortBy = (e) => dispatch(setSortBy(e.traget.value));
+  const changeSortBy = (e) => dispatch(setSortBy(e.target.value));
   const posts = useSelector((state) => state.posts);
   const categories = useSelector((state) => state.categories);
   const sortBy = useSelector((state) => state.sortBy);
+  const allPosts = [];
   if (categories.length > 0 && posts) {
     categories.forEach((category) => {
       if (posts[category] && posts[category].length > 0) {
