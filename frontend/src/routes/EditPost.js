@@ -14,7 +14,7 @@ export default function EditPost(props) {
 
   useEffect(() => {
     dispatch(getPostByPostId(props.match.params.postId));
-  }, [dispatch]);
+  }, []);
 
   const editPost = ({ id, title, body }) => {
     dispatch(editPostByPostId(id, title, body));
