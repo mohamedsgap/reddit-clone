@@ -5,13 +5,15 @@ import PostsContainer from "../components/PostsContainer";
 import { setSortBy } from "../store/actions";
 
 export default function PostsByCategory(props) {
-  const dispacth = useDispatch();
-  const postsX = useSelector((state) => state.posts);
-  const posts = postsX[ownProps.match.params.category];
+  const dispatch = useDispatch();
+  const posts = useSelector(
+    (state) => state.posts[props.match.params.category]
+  );
+  //const posts = postsX[props.ownProps.match.params.category];
   const sortBy = useSelector((state) => state.sortBy);
-  const categories = useSelector((state) => state.categories);
+  //const categories = useSelector((state) => state.categories);
 
-  const changeSortBy = (e) => dispatch(setSortBy(e.traget.value));
+  const changeSortBy = (e) => dispatch(setSortBy(e.target.value));
 
   return (
     <PostsContainer
@@ -24,7 +26,7 @@ export default function PostsByCategory(props) {
 }
 
 PostsByCategory.defaultProps = {
-  postsX: [],
+  posts: [],
 };
 
 PostsByCategory.propTypes = {
