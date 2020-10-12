@@ -13,7 +13,7 @@ function App() {
   return (
     <BrowserRouter>
       <div>
-        <Header title="Readable" />
+        <Header title="Reddit Clone by Mohamed AbdelNasser 👋" />
         <Switch>
           <Route exact path="/" component={AllPosts} />
           <Route exact path="/new" component={NewPost} />
