@@ -11,7 +11,7 @@ export const getSortedPosts = (posts, order) => {
 
 export function dateFormatEgypt(timestamp) {
   return new Date(timestamp).toLocaleString("en-EG", {
-    timeZone: "Egypt/Cairo",
+    timeZone: "UTC",
   });
 }
 
