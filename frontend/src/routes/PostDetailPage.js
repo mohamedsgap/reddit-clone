@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect } from "react";
 import PropTypes from "prop-types";
 import { useDispatch, useSelector } from "react-redux";
 import { Redirect } from "react-router-dom";
@@ -21,9 +21,9 @@ export default function PostDetailPage(props) {
     const { postId } = props.match.params;
     dispatch(getAllCommentsByPostId(postId));
     dispatch(getPostByPostId(postId));
-  }, [dispatch]);
+  }, []);
 
-  const addCommentHandle = (comment) => {
+  const addCommentHandler = (comment) => {
     comment.parentId = props.match.params.postId;
     dispatch(addComment(comment));
   };
