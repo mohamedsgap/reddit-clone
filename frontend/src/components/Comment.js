@@ -9,7 +9,6 @@ import { dateFormatEgypt } from "../utils";
 function Comment(props) {
   const [editMode, setEditMode] = useState(false);
   const { body, voteScore, author, timestamp } = props.comment;
-
   const upVote = () => {
     props.upVote(props.comment.id);
   };
