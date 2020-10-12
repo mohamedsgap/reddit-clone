@@ -6,7 +6,7 @@ const defaultData = {
   "8xf0y6ziyjabvozdd253nd": {
     id: "8xf0y6ziyjabvozdd253nd",
     timestamp: 1467166872634,
-    title: "Udacity is the best place to learn React",
+    title: "where is the best place to learn react",
     body: "Everyone says so after all.",
     author: "thingtwo",
     category: "react",
@@ -40,11 +40,11 @@ const defaultData = {
   dfjkdfd890u38782hjh2d8: {
     id: "dfjkdfd890u38782hjh2d8",
     timestamp: 1468479767323,
-    title: "React Nanodegree Program",
+    title: "What is Node.js",
     body:
-      "For the Readable project, you will build a content and comment web app. Users will be able to post content to predefined categories, comment on their posts and other users' posts, and vote on posts and comments. Users will also be able to edit and delete posts and comments.",
+      "Node.js is an open-source, cross-platform, back-end, JavaScript runtime environment that executes JavaScript code outside a web browser",
     author: "mentor",
-    category: "udacity",
+    category: "node",
     voteScore: 12,
     deleted: false,
     commentCount: 0,
