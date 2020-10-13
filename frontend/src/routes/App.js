@@ -9,11 +9,13 @@ import EditPost from "./EditPost";
 import NotFound from "./NotFound";
 import "./App.css";
 
+const title = <h3>Reddit Clone</h3>;
+const author = <p>by Mohamed Abdel Nasser 👋</p>;
 function App() {
   return (
     <BrowserRouter>
       <div>
-        <Header title="Reddit Clone by Mohamed AbdelNasser 👋" />
+        <Header title={title} author={author} />
         <Switch>
           <Route exact path="/" component={AllPosts} />
           <Route exact path="/new" component={NewPost} />

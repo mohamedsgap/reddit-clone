@@ -14,7 +14,6 @@ export function dateFormatEgypt(timestamp) {
     timeZone: "UTC",
   });
 }
-
 export function dateFormat(timestamp) {
   return new Date(timestamp).toString();
 }
