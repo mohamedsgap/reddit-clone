@@ -14,7 +14,7 @@ const defaultData = {
       path: "redux",
     },
     {
-      name: "node.js",
+      name: "node",
       path: "node",
     },
   ],
