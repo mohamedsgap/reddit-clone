@@ -10,16 +10,12 @@ function PostForm(props) {
   const [body, setBody] = useState("");
   const [author, setAuthor] = useState("");
 
-  useEffect(() => {
-    const { category, title, body, author } = props.post;
+  const onSubmit = (e) => {
+    e.preventDefault();
     setBody(body);
     setAuthor(author);
     setCategory(category);
     setTitle(title);
-  }, []);
-
-  const onSubmit = (e) => {
-    e.preventDefault();
     props.submitPost({
       id: props.post.id,
       category,

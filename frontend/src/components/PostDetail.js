@@ -44,7 +44,7 @@ export default function PostDetail(props) {
     voteScore,
     commentCount,
   } = post;
-
+  //console.log("debug posts author", author);
   const badgeColor = voteScore >= 10 ? "badge-danger" : "badge-secondary";
 
   return (

@@ -2,14 +2,9 @@ import React, { useState } from "react";
 import PropTypes from "prop-types";
 import InputText from "./InputText";
 
-const defaultState = {
-  comment: "",
-  author: "",
-};
-
 function CommentForm(props) {
-  const [initComment, setComment] = useState(defaultState.comment);
-  const [author, setAuthor] = useState(defaultState.author);
+  const [comment, setComment] = useState("");
+  const [author, setAuthor] = useState("");
 
   const handleChangeComment = (e) => {
     setComment(e.target.value);
@@ -21,21 +16,21 @@ function CommentForm(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     setAuthor(author);
-    setComment(initComment);
-    const comment = {
-      body: initComment,
-      author: author,
+    setComment(comment);
+    const commentObject = {
+      body: comment,
+      author,
     };
-    props.addComment(comment);
-    setAuthor(defaultState.author);
-    setComment(defaultState.comment);
+    props.addComment(commentObject);
+    setAuthor("");
+    setComment("");
   };
 
   return (
     <form className="my-4" onSubmit={handleSubmit}>
       <InputText
         id="comment"
-        value={initComment}
+        value={comment}
         required
         disabled={false}
         handleChange={handleChangeComment}
