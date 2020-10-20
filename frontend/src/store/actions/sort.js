@@ -1,3 +1,6 @@
-export const SET_SORT_BY = "SET_SORT_BY";
+import { SET_SORT_BY } from '../constants';
 
-export const setSortBy = (sortBy) => ({ type: SET_SORT_BY, sortBy });
+export const setSortBy = sortBy => ({
+  type: SET_SORT_BY,
+  sortBy,
+});

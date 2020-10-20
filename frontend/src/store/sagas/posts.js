@@ -1,4 +1,4 @@
-import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
+import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
 import {
   GET_POSTS_BY_CATEGORY,
   GET_POSTS_BY_CATEGORY_SUCCESS,
@@ -11,7 +11,7 @@ import {
   ADD_POST,
   ADD_POST_SUCCESS,
   EDIT_POST_BY_POST_ID,
-} from "../actions/posts";
+} from '../constants/posts';
 import {
   getPostsByCategory,
   deletePost,
@@ -19,7 +19,7 @@ import {
   downVoteToPost,
   addPost,
   editPostByPostId,
-} from "../../utils/api";
+} from '../../utils/api';
 
 function* getPostsByCategorySaga({ category }) {
   const posts = yield call(getPostsByCategory, category);

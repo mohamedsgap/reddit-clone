@@ -1,4 +1,4 @@
-import { call, put, takeEvery, takeLatest } from "redux-saga/effects";
+import { call, put, takeEvery, takeLatest } from 'redux-saga/effects';
 import {
   getAllCommentsByPostId,
   addComment,
@@ -6,7 +6,7 @@ import {
   editComment,
   upVoteToComment,
   downVoteToComment,
-} from "../../utils/api";
+} from '../../utils/api';
 import {
   GET_ALL_COMMENTS_BY_POST_ID,
   GET_ALL_COMMENTS_BY_POST_ID_SUCCESS,
@@ -19,8 +19,8 @@ import {
   UPVOTE_TO_COMMENT_SUCCESS,
   DOWNVOTE_TO_COMMENT,
   DOWNVOTE_TO_COMMENT_SUCCESS,
-} from "../actions/comments";
-import { GET_POST_BY_POST_ID } from "../actions/post";
+} from '../constants/comments';
+import { GET_POST_BY_POST_ID } from '../constants';
 
 function* getAllCommentsByPostIdSaga({ id }) {
   const comments = yield call(getAllCommentsByPostId, id);
