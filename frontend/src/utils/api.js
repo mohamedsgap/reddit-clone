@@ -1,9 +1,9 @@
 import axios from "axios";
-import { v1 as uuidv1 } from "uuid";
+//import uuidV1 from "uuid/v1";
 
 const headers = {
   Accept: "application/json",
-  Authorization: "ReadableJay",
+  Authorization: "mohamedReddit",
 };
 
 export async function getAllCategories() {
@@ -19,18 +19,24 @@ export async function getPostsByCategory(category) {
 export async function upVoteToPost(id) {
   const res = await axios.post(
     `/api/posts/${id}`,
-    { option: "upVote" },
+    {
+      option: "upVote",
+    },
     { headers }
   );
+
   return res.data;
 }
 
 export async function downVoteToPost(id) {
   const res = await axios.post(
     `/api/posts/${id}`,
-    { option: "downVote" },
+    {
+      option: "downVote",
+    },
     { headers }
   );
+
   return res.data;
 }
 
@@ -42,6 +48,7 @@ export async function upVoteToComment(id) {
     },
     { headers }
   );
+
   return res.data;
 }
 
@@ -53,9 +60,102 @@ export async function downVoteToComment(id) {
     },
     { headers }
   );
+
   return res.data;
 }
 
+export async function addPost({ category, title, body, author }) {
+  const id = Date.now();
+  const timestamp = Date.now();
+  const res = await axios.post(
+    `/api/posts`,
+    {
+      id,
+      timestamp,
+      title,
+      body,
+      author,
+      category,
+    },
+    { headers }
+  );
+
+  return res.data;
+}
+
+export async function deletePost(id) {
+  const res = await axios.delete(`/api/posts/${id}`, { headers });
+
+  return res.data;
+}
+
+export async function getPostByPostId(id) {
+  const res = await axios.get(`/api/posts/${id}`, { headers });
+
+  return res.data;
+}
+
+export async function editPostByPostId({ id, title, body }) {
+  const res = await axios.put(
+    `/api/posts/${id}`,
+    {
+      title,
+      body,
+    },
+    { headers }
+  );
+
+  return res.data;
+}
+
+export async function getAllCommentsByPostId(id) {
+  const res = await axios.get(`/api/posts/${id}/comments`, {
+    headers,
+  });
+
+  return res.data;
+}
+
+export async function deleteComment(id) {
+  const res = await axios.delete(`/api/comments/${id}`, { headers });
+
+  return res.data;
+}
+
+export async function addComment({ body, author, parentId }) {
+  const id = Date.now();
+  const timestamp = Date.now();
+  const res = await axios.post(
+    `/api/comments`,
+    {
+      id,
+      timestamp,
+      body,
+      author,
+      parentId,
+    },
+    { headers }
+  );
+
+  return res.data;
+}
+
+export async function editComment({ id, body }) {
+  const timestamp = Date.now();
+  const res = await axios.put(
+    `/api/comments/${id}`,
+    {
+      body,
+      timestamp,
+    },
+    { headers }
+  );
+
+  return res.data;
+}
+
+////////////////////////////////////////////////////
+/*
 export async function addPost({ category, title, body, auther }) {
   const id = uuidv1();
   const timestamp = Date.now();
@@ -71,32 +171,6 @@ export async function addPost({ category, title, body, auther }) {
     },
     { headers }
   );
-  return res.data;
-}
-
-export async function deletePost(id) {
-  const res = await axios.delete(`/api/posts/${id}`, { headers });
-  return res.data;
-}
-
-export async function getPostByPostId(id) {
-  const res = await axios.get(`/api/posts/${id}`, { headers });
-
-  return res.data;
-}
-
-export async function editPostByPostId({ id, title, body }) {
-  const res = await axios.put(`/api/posts/${id}`, { title, body }, { headers });
-  return res.data;
-}
-
-export async function getAllCommentsByPostId(id) {
-  const res = await axios.get(`/api/posts/${id}/comments`, { headers });
-  return res.data;
-}
-
-export async function deleteComment(id) {
-  const res = await axios.delete(`/api/comments/${id}`, { headers });
   return res.data;
 }
 
@@ -116,15 +190,5 @@ export async function addComment({ body, auther, parentId }) {
   );
   return res.data;
 }
-
-export async function editComment({ id, body }) {
-  const timestamp = Date.now();
-  const res = await axios.put(
-    `/api/comments/${id}`,
-    { body, timestamp },
-    { headers }
-  );
-  return res.data;
-}
-
-console.log("id on api file", uuidv1());
+*/
+////////////////////////////////////////////////////
