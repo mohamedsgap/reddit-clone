@@ -5,34 +5,34 @@ import {
   DOWNVOTE_TO_POST,
   ADD_POST,
   EDIT_POST_BY_POST_ID,
-} from '../constants';
+} from "../constants";
 
-export const getPostsByCategory = category => ({
+export const getPostsByCategory = (category) => ({
   type: GET_POSTS_BY_CATEGORY,
   category,
 });
 
-export const deletePost = id => ({
+export const deletePost = (id) => ({
   type: DELETE_POST,
   id,
 });
 
-export const upVoteToPost = id => ({
+export const upVoteToPost = (id) => ({
   type: UPVOTE_TO_POST,
   id,
 });
 
-export const downVoteToPost = id => ({
+export const downVoteToPost = (id) => ({
   type: DOWNVOTE_TO_POST,
   id,
 });
 
-export const addPost = post => ({
+export const addPost = (post) => ({
   type: ADD_POST,
   post,
 });
 
-export const editPostByPostId = post => ({
+export const editPostByPostId = (post) => ({
   type: EDIT_POST_BY_POST_ID,
   post,
 });

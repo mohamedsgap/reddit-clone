@@ -4,7 +4,7 @@ import {
   EDIT_COMMENT_SUCCESS,
   UPVOTE_TO_COMMENT_SUCCESS,
   DOWNVOTE_TO_COMMENT_SUCCESS,
-} from '../constants';
+} from "../constants";
 
 const commentsReducer = (state = [], action) => {
   switch (action.type) {
@@ -18,7 +18,7 @@ const commentsReducer = (state = [], action) => {
     case UPVOTE_TO_COMMENT_SUCCESS:
     case DOWNVOTE_TO_COMMENT_SUCCESS:
     case EDIT_COMMENT_SUCCESS: {
-      const newState = state.map(comment => {
+      const newState = state.map((comment) => {
         if (comment.id === action.comment.id) {
           return action.comment;
         }

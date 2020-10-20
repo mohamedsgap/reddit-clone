@@ -3,7 +3,7 @@ import {
   GET_POST_BY_POST_ID_FAIL,
   UPVOTE_TO_POST_SUCCESS,
   DOWNVOTE_TO_POST_SUCCESS,
-} from '../constants';
+} from "../constants";
 
 const postReducer = (state = {}, action) => {
   switch (action.type) {

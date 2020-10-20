@@ -1,6 +1,9 @@
-import { call, put, takeLatest } from 'redux-saga/effects';
-import { GET_ALL_CATEGORIES, GET_ALL_CATEGORIES_SUCCESS } from '../constants/category';
-import { getAllCategories } from '../../utils/api';
+import { call, put, takeLatest } from "redux-saga/effects";
+import {
+  GET_ALL_CATEGORIES,
+  GET_ALL_CATEGORIES_SUCCESS,
+} from "../constants/category";
+import { getAllCategories } from "../../utils/api";
 
 function* getAllCategoriesSaga() {
   const categories = yield call(getAllCategories);
